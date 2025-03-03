@@ -6,73 +6,8 @@
     "y": 0
   },
   "id": "sprotty",
-  "revision": 10,
+  "revision": 4,
   "children": [
-    {
-      "cssClasses": [
-        "task",
-        "automated"
-      ],
-      "type": "task:automated",
-      "id": "task_ChkTp",
-      "layout": "hbox",
-      "args": {
-        "radiusTopLeft": 5,
-        "radiusBottomLeft": 5,
-        "radiusBottomRight": 5,
-        "radiusTopRight": 5
-      },
-      "position": {
-        "x": 220,
-        "y": 150
-      },
-      "name": "ChkTp",
-      "taskType": "automated",
-      "layoutOptions": {
-        "paddingRight": 10,
-        "prefWidth": 82.4482421875,
-        "prefHeight": 30
-      },
-      "size": {
-        "width": 82.4482421875,
-        "height": 30
-      },
-      "children": [
-        {
-          "cssClasses": [],
-          "type": "icon",
-          "id": "task_ChkTp_icon",
-          "position": {
-            "x": 5,
-            "y": 5
-          },
-          "size": {
-            "width": 25,
-            "height": 20
-          },
-          "children": []
-        },
-        {
-          "cssClasses": [],
-          "type": "label:heading",
-          "alignment": {
-            "x": 20.6171875,
-            "y": 13
-          },
-          "id": "task_ChkTp_label",
-          "text": "ChkTp",
-          "position": {
-            "x": 31,
-            "y": 7
-          },
-          "size": {
-            "width": 41.4482421875,
-            "height": 16
-          },
-          "children": []
-        }
-      ]
-    },
     {
       "cssClasses": [
         "task",
@@ -88,8 +23,8 @@
         "radiusTopRight": 5
       },
       "position": {
-        "x": 50,
-        "y": 100
+        "x": 10,
+        "y": 110
       },
       "name": "Push",
       "taskType": "manual",
@@ -145,8 +80,8 @@
       "type": "activityNode:fork",
       "id": "fork_1",
       "position": {
-        "x": 170,
-        "y": 90
+        "x": 130,
+        "y": 100
       },
       "nodeType": "forkNode",
       "size": {
@@ -163,92 +98,12 @@
       "sourceId": "task_Push",
       "targetId": "fork_1",
       "args": {
-        "edgeSourcePointX": 141.59375,
-        "edgeSourcePointY": 115,
-        "edgeTargetPointX": 169.5,
-        "edgeTargetPointY": 115
+        "edgeSourcePointX": 101.59375,
+        "edgeSourcePointY": 125,
+        "edgeTargetPointX": 129.5,
+        "edgeTargetPointY": 125
       },
       "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_fork1_task_ChkTp",
-      "sourceId": "fork_1",
-      "targetId": "task_ChkTp",
-      "args": {
-        "edgeSourcePointX": 179.9129171124612,
-        "edgeSourcePointY": 117.84892269711828,
-        "edgeTargetPointX": 235.356884765625,
-        "edgeTargetPointY": 150
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [
-        "task",
-        "automated"
-      ],
-      "type": "task:automated",
-      "id": "task_ChkWt",
-      "layout": "hbox",
-      "args": {
-        "radiusTopLeft": 5,
-        "radiusBottomLeft": 5,
-        "radiusBottomRight": 5,
-        "radiusTopRight": 5
-      },
-      "position": {
-        "x": 220,
-        "y": 50
-      },
-      "name": "ChkWt",
-      "taskType": "automated",
-      "layoutOptions": {
-        "paddingRight": 10,
-        "prefWidth": 83.1103515625,
-        "prefHeight": 30
-      },
-      "size": {
-        "width": 83.1103515625,
-        "height": 30
-      },
-      "children": [
-        {
-          "cssClasses": [],
-          "type": "icon",
-          "id": "task_ChkWt_icon",
-          "position": {
-            "x": 5,
-            "y": 5
-          },
-          "size": {
-            "width": 25,
-            "height": 20
-          },
-          "children": []
-        },
-        {
-          "cssClasses": [],
-          "type": "label:heading",
-          "alignment": {
-            "x": 21,
-            "y": 13
-          },
-          "id": "task_ChkWt_label",
-          "text": "ChkWt",
-          "position": {
-            "x": 31,
-            "y": 7
-          },
-          "size": {
-            "width": 42.1103515625,
-            "height": 16
-          },
-          "children": []
-        }
-      ]
     },
     {
       "cssClasses": [
@@ -258,7 +113,7 @@
       "id": "decision_1",
       "position": {
         "x": 330,
-        "y": 50
+        "y": 70
       },
       "nodeType": "decisionNode",
       "size": {
@@ -281,7 +136,7 @@
       "id": "decision2",
       "position": {
         "x": 330,
-        "y": 150
+        "y": 160
       },
       "nodeType": "decisionNode",
       "size": {
@@ -294,51 +149,6 @@
         "bottom",
         "left"
       ],
-      "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_task_ChkWt_decision1",
-      "sourceId": "task_ChkWt",
-      "targetId": "decision_1",
-      "args": {
-        "edgeSourcePointX": 303.1103515625,
-        "edgeSourcePointY": 65.49209855270233,
-        "edgeTargetPointX": 329.68729039942264,
-        "edgeTargetPointY": 65.80682404455813
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_fork1_task_ChkWt",
-      "sourceId": "fork_1",
-      "targetId": "task_ChkWt",
-      "args": {
-        "edgeSourcePointX": 179.91511482913953,
-        "edgeSourcePointY": 112.16070426477935,
-        "edgeTargetPointX": 235.588623046875,
-        "edgeTargetPointY": 80
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_task_ChkTp_decision2",
-      "sourceId": "task_ChkTp",
-      "targetId": "decision2",
-      "args": {
-        "edgeSourcePointX": 302.4482421875,
-        "edgeSourcePointY": 165.48627182195702,
-        "edgeTargetPointX": 329.686567408344,
-        "edgeTargetPointY": 165.80756987952083
-      },
       "children": []
     },
     {
@@ -487,7 +297,7 @@
       },
       "position": {
         "x": 390,
-        "y": 20
+        "y": 70
       },
       "name": "RflWt",
       "taskType": "manual",
@@ -538,71 +348,6 @@
     },
     {
       "cssClasses": [
-        "task",
-        "automated"
-      ],
-      "type": "task:automated",
-      "id": "task_WtOK",
-      "layout": "hbox",
-      "args": {
-        "radiusTopLeft": 5,
-        "radiusBottomLeft": 5,
-        "radiusBottomRight": 5,
-        "radiusTopRight": 5
-      },
-      "position": {
-        "x": 390,
-        "y": 80
-      },
-      "name": "WtOK",
-      "taskType": "automated",
-      "layoutOptions": {
-        "paddingRight": 10,
-        "prefWidth": 78.9931640625,
-        "prefHeight": 30
-      },
-      "size": {
-        "width": 78.9931640625,
-        "height": 30
-      },
-      "children": [
-        {
-          "cssClasses": [],
-          "type": "icon",
-          "id": "task_WtOK_icon",
-          "position": {
-            "x": 5,
-            "y": 5
-          },
-          "size": {
-            "width": 25,
-            "height": 20
-          },
-          "children": []
-        },
-        {
-          "cssClasses": [],
-          "type": "label:heading",
-          "alignment": {
-            "x": 18.671875,
-            "y": 13
-          },
-          "id": "task_WtOK_label",
-          "text": "WtOK",
-          "position": {
-            "x": 31,
-            "y": 7
-          },
-          "size": {
-            "width": 37.9931640625,
-            "height": 16
-          },
-          "children": []
-        }
-      ]
-    },
-    {
-      "cssClasses": [
         "medium"
       ],
       "type": "edge:weighted",
@@ -612,28 +357,10 @@
       "targetId": "task_RflWt",
       "probability": "medium",
       "args": {
-        "edgeSourcePointX": 358.0649068859051,
-        "edgeSourcePointY": 61.42000425502652,
+        "edgeSourcePointX": 362.30640345792756,
+        "edgeSourcePointY": 85.80031861064172,
         "edgeTargetPointX": 390,
-        "edgeTargetPointY": 49.29702709813207
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [
-        "medium"
-      ],
-      "type": "edge:weighted",
-      "routingPoints": [],
-      "id": "edge_decision_1_task_WtOK",
-      "sourceId": "decision_1",
-      "targetId": "task_WtOK",
-      "probability": "medium",
-      "args": {
-        "edgeSourcePointX": 358.34775282071627,
-        "edgeSourcePointY": 70.28861664860428,
-        "edgeTargetPointX": 390,
-        "edgeTargetPointY": 81.28206267799604
+        "edgeTargetPointY": 85.46119442252039
       },
       "children": []
     },
@@ -648,10 +375,10 @@
       "targetId": "task_KeepTp",
       "probability": "medium",
       "args": {
-        "edgeSourcePointX": 359.4355670963364,
-        "edgeSourcePointY": 162.83422159210613,
-        "edgeTargetPointX": 390,
-        "edgeTargetPointY": 155.6324249695934
+        "edgeSourcePointX": 358.3431820143574,
+        "edgeSourcePointY": 171.70667225640446,
+        "edgeTargetPointX": 391.99949596774195,
+        "edgeTargetPointY": 160
       },
       "children": []
     },
@@ -666,10 +393,10 @@
       "targetId": "task_PreHeat",
       "probability": "medium",
       "args": {
-        "edgeSourcePointX": 358.5845250668064,
-        "edgeSourcePointY": 170.0444811296957,
+        "edgeSourcePointX": 359.7062645736243,
+        "edgeSourcePointY": 178.8860290426887,
         "edgeTargetPointX": 390,
-        "edgeTargetPointY": 180.14095238095237
+        "edgeTargetPointY": 185.2647619047619
       },
       "children": []
     },
@@ -705,7 +432,7 @@
         "radiusTopRight": 5
       },
       "position": {
-        "x": 640,
+        "x": 610,
         "y": 90
       },
       "name": "Brew",
@@ -763,7 +490,7 @@
       "id": "merge_1",
       "position": {
         "x": 500,
-        "y": 50
+        "y": 70
       },
       "nodeType": "mergeNode",
       "size": {
@@ -810,24 +537,9 @@
       "targetId": "merge_1",
       "args": {
         "edgeSourcePointX": 465.32421875,
-        "edgeSourcePointY": 48.21658670322138,
-        "edgeTargetPointX": 503.68447295370714,
-        "edgeTargetPointY": 61.678170083823204
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_task_WTOK_merge_1",
-      "sourceId": "task_WtOK",
-      "targetId": "merge_1",
-      "args": {
-        "edgeSourcePointX": 468.9931640625,
-        "edgeSourcePointY": 81.75889455235128,
-        "edgeTargetPointX": 503.5431283350021,
-        "edgeTargetPointY": 70.17612721864288
+        "edgeSourcePointY": 85.42634150655553,
+        "edgeTargetPointX": 499.6791273746474,
+        "edgeTargetPointY": 85.81524493612106
       },
       "children": []
     },
@@ -884,10 +596,10 @@
       "sourceId": "merge_1",
       "targetId": "join_1",
       "args": {
-        "edgeSourcePointX": 524.3535533905932,
-        "edgeSourcePointY": 74.35355339059328,
-        "edgeTargetPointX": 560.4797799427402,
-        "edgeTargetPointY": 110.47977994274005
+        "edgeSourcePointX": 526.4815703926942,
+        "edgeSourcePointY": 92.20337839567607,
+        "edgeTargetPointX": 560.0989087388799,
+        "edgeTargetPointY": 112.09935415158202
       },
       "children": []
     },
@@ -901,8 +613,198 @@
       "args": {
         "edgeSourcePointX": 570.5,
         "edgeSourcePointY": 115,
-        "edgeTargetPointX": 640,
+        "edgeTargetPointX": 610,
         "edgeTargetPointY": 115
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "task",
+        "manual"
+      ],
+      "type": "task:manual",
+      "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 180,
+        "y": 70
+      },
+      "name": "ManualTask8",
+      "taskType": "manual",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 123.45895385742188,
+        "prefHeight": 30
+      },
+      "size": {
+        "width": 123.703125,
+        "height": 30
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400_icon",
+          "position": {
+            "x": 5,
+            "y": 5
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 41.25,
+            "y": 13
+          },
+          "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400_classname",
+          "text": "ManualTask8",
+          "position": {
+            "x": 31,
+            "y": 7
+          },
+          "size": {
+            "width": 82.703125,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "d46c3876-90a6-4882-b462-f839de302290",
+      "sourceId": "fork_1",
+      "targetId": "67ee63b4-d9fe-4739-a33c-1e1e22a27400",
+      "args": {
+        "edgeSourcePointX": 140.11998878354282,
+        "edgeSourcePointY": 123.08332656490903,
+        "edgeTargetPointX": 201.7822265625,
+        "edgeTargetPointY": 100
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "46dd8e4b-5f2f-4aa3-85a3-9f24f0bde0b8",
+      "sourceId": "67ee63b4-d9fe-4739-a33c-1e1e22a27400",
+      "targetId": "decision_1",
+      "args": {
+        "edgeSourcePointX": 303.703125,
+        "edgeSourcePointY": 85.59387892881254,
+        "edgeTargetPointX": 329.652188883459,
+        "edgeTargetPointY": 85.84303354415144
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "task",
+        "manual"
+      ],
+      "type": "task:manual",
+      "id": "c1830d23-9d62-42e3-84fa-0722e74d770c",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 180,
+        "y": 160
+      },
+      "name": "ManualTask6",
+      "taskType": "manual",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 123.45895385742188,
+        "prefHeight": 30
+      },
+      "size": {
+        "width": 123.703125,
+        "height": 30
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "c1830d23-9d62-42e3-84fa-0722e74d770c_icon",
+          "position": {
+            "x": 5,
+            "y": 5
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 41.25,
+            "y": 13
+          },
+          "id": "c1830d23-9d62-42e3-84fa-0722e74d770c_classname",
+          "text": "ManualTask6",
+          "position": {
+            "x": 31,
+            "y": 7
+          },
+          "size": {
+            "width": 82.703125,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "5105a256-0e5d-4140-ac67-38f4c8ad6c4f",
+      "sourceId": "fork_1",
+      "targetId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
+      "args": {
+        "edgeSourcePointX": 140.0249772430447,
+        "edgeSourcePointY": 127.351382200445,
+        "edgeTargetPointX": 209.79609375,
+        "edgeTargetPointY": 160
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "046d9402-b08f-4d54-9982-ce5d084ac28f",
+      "sourceId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
+      "targetId": "decision2",
+      "args": {
+        "edgeSourcePointX": 303.703125,
+        "edgeSourcePointY": 175.59387892881253,
+        "edgeTargetPointX": 329.652188883459,
+        "edgeTargetPointY": 175.84303354415144
       },
       "children": []
     }

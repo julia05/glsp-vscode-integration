@@ -82,7 +82,10 @@ class DiffEditorTrackerImpl implements DiffEditorTracker {
                         this.clear();
                     }
                 }
-                console.log('Diff tracker state: ', { activeDiff: this.activeDiff, currentDiffEditorTab: this.currentDiffEditorTab });
+                console.log('Diff tracker state: ', {
+                    activeDiff: this.activeDiff,
+                    currentDiffEditorTab: JSON.stringify(this.currentDiffEditorTab)
+                });
             })
         );
         const activeTab = vscode.window.tabGroups.activeTabGroup.activeTab;
