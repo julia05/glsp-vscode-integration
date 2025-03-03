@@ -10,71 +10,6 @@
   "children": [
     {
       "cssClasses": [
-        "task",
-        "manual"
-      ],
-      "type": "task:manual",
-      "id": "task_Push",
-      "layout": "hbox",
-      "args": {
-        "radiusTopLeft": 5,
-        "radiusBottomLeft": 5,
-        "radiusBottomRight": 5,
-        "radiusTopRight": 5
-      },
-      "position": {
-        "x": 10,
-        "y": 110
-      },
-      "name": "Push",
-      "taskType": "manual",
-      "layoutOptions": {
-        "paddingRight": 10,
-        "prefWidth": 91.59375,
-        "prefHeight": 30
-      },
-      "size": {
-        "width": 91.59375,
-        "height": 30
-      },
-      "children": [
-        {
-          "cssClasses": [],
-          "type": "icon",
-          "id": "task_Push_icon",
-          "position": {
-            "x": 5,
-            "y": 5
-          },
-          "size": {
-            "width": 25,
-            "height": 20
-          },
-          "children": []
-        },
-        {
-          "cssClasses": [],
-          "type": "label:heading",
-          "alignment": {
-            "x": 25.296875,
-            "y": 13
-          },
-          "id": "task_Push_label",
-          "text": "Pushing",
-          "position": {
-            "x": 31,
-            "y": 7
-          },
-          "size": {
-            "width": 50.59375,
-            "height": 16
-          },
-          "children": []
-        }
-      ]
-    },
-    {
-      "cssClasses": [
         "forkOrJoin"
       ],
       "type": "activityNode:fork",
@@ -87,21 +22,6 @@
       "size": {
         "width": 10,
         "height": 50
-      },
-      "children": []
-    },
-    {
-      "cssClasses": [],
-      "type": "edge",
-      "routingPoints": [],
-      "id": "edge_task_Push_fork_1",
-      "sourceId": "task_Push",
-      "targetId": "fork_1",
-      "args": {
-        "edgeSourcePointX": 101.59375,
-        "edgeSourcePointY": 125,
-        "edgeTargetPointX": 129.5,
-        "edgeTargetPointY": 125
       },
       "children": []
     },
@@ -469,7 +389,7 @@
             "y": 13
           },
           "id": "task_Brew_label",
-          "text": "Brewing",
+          "text": "Brew",
           "position": {
             "x": 31,
             "y": 17
@@ -644,7 +564,7 @@
         "prefHeight": 30
       },
       "size": {
-        "width": 123.703125,
+        "width": 123.45895385742188,
         "height": 30
       },
       "children": [
@@ -666,17 +586,17 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 41.25,
+            "x": 19.4609375,
             "y": 13
           },
           "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400_classname",
-          "text": "ManualTask8",
+          "text": "Select",
           "position": {
             "x": 31,
             "y": 7
           },
           "size": {
-            "width": 82.703125,
+            "width": 39.0205078125,
             "height": 16
           },
           "children": []
@@ -739,7 +659,7 @@
         "prefHeight": 30
       },
       "size": {
-        "width": 123.703125,
+        "width": 123.45895385742188,
         "height": 30
       },
       "children": [
@@ -761,17 +681,17 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 41.25,
+            "x": 12.0625,
             "y": 13
           },
           "id": "c1830d23-9d62-42e3-84fa-0722e74d770c_classname",
-          "text": "ManualTask6",
+          "text": "Buy",
           "position": {
             "x": 31,
             "y": 7
           },
           "size": {
-            "width": 82.703125,
+            "width": 24.125,
             "height": 16
           },
           "children": []
@@ -786,9 +706,9 @@
       "sourceId": "fork_1",
       "targetId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
       "args": {
-        "edgeSourcePointX": 140.0249772430447,
-        "edgeSourcePointY": 127.351382200445,
-        "edgeTargetPointX": 209.79609375,
+        "edgeSourcePointX": 140.0244366363389,
+        "edgeSourcePointY": 127.35381863610881,
+        "edgeTargetPointX": 209.71063385009765,
         "edgeTargetPointY": 160
       },
       "children": []
@@ -801,10 +721,10 @@
       "sourceId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
       "targetId": "decision2",
       "args": {
-        "edgeSourcePointX": 303.703125,
-        "edgeSourcePointY": 175.59387892881253,
-        "edgeTargetPointX": 329.652188883459,
-        "edgeTargetPointY": 175.84303354415144
+        "edgeSourcePointX": 303.4589538574219,
+        "edgeSourcePointY": 175.59201272910568,
+        "edgeTargetPointX": 329.65201235796894,
+        "edgeTargetPointY": 175.8432156360158
       },
       "children": []
     }
