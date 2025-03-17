@@ -90,6 +90,11 @@
         "command": "workflow.compareSelected",
         "category": "Workflow Diagram",
         "title": "Compare selected in Workflow Diagram Editor"
+      },
+      {
+        "command": "workflow.openMergeVisualizer",
+        "category": "Workflow Diagram",
+        "title": "Open Diagram Merge Visualizer"
       }
     ],
     "customEditors": [
@@ -148,6 +153,13 @@
       }
     ],
     "menus": {
+      "scm/resourceState/context": [
+        {
+          "command": "workflow.openMergeVisualizer",
+          "when": "scmProvider == git && scmResourceGroup == merge && resourceExtname == .wf",
+          "group": "inline"
+        }
+      ],
       "commandPalette": [
         {
           "command": "workflow.compareSelected",
@@ -212,7 +224,8 @@
     ]
   },
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onCommand:git.openMergeEditor"
   ],
   "devDependencies": {
     "@eclipse-glsp-examples/workflow-server": "2.3.0",

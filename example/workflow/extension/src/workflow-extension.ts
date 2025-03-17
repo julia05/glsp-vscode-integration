@@ -116,6 +116,41 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
             }
             openCompareSelected(leftFile, rightFile);
         }),
+        vscode.commands.registerCommand('workflow.openMergeVisualizer', (...args) => {
+            console.log('haaalllooo ', args);
+            console.log('--------------------------');
+        }),
+        vscode.window.onDidChangeActiveTextEditor(editor => {
+            if (editor) {
+                console.log(`Active editor changed: ${editor.document.uri.toString()}`);
+                console.log(`Scheme: ${editor.document.uri.scheme}`);
+                console.log('--------------------------');
+            }
+            if (editor && editor.document.uri.scheme === 'merge-editor') {
+                console.log('byyyyeeee ');
+            }
+        }),
+        vscode.workspace.onDidOpenTextDocument(document => {
+            console.log('OpenTextDocument');
+            console.log(document);
+            console.log(`Document opened: ${document.uri.toString()}`);
+            console.log(`Scheme: ${document.uri.scheme}`);
+            console.log('--------------------------');
+            if (document.uri.scheme === 'merge-editor') {
+                console.log('goooood luuuuck ');
+                console.log('Merge editor document was opened');
+            }
+        }),
+        vscode.tasks.onDidStartTask(taskstart => {
+            console.log('taskstart ');
+            console.log(taskstart.execution);
+            console.log('--------------------------');
+        }),
+        vscode.window.tabGroups.onDidChangeTabs(e => {
+            console.log('tabGroups - ChangeTab ');
+            console.log(e);
+            console.log('--------------------------');
+        }),
         DiffEditorTracker.get()
     );
 }
