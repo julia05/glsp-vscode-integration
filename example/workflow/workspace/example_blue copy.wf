@@ -1,0 +1,478 @@
+{
+  "cssClasses": [],
+  "type": "graph",
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "id": "sprotty",
+  "revision": 1,
+  "children": [
+    {
+      "cssClasses": [
+        "task",
+        "automated"
+      ],
+      "type": "task:automated",
+      "id": "task_ChkTp",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 220,
+        "y": 100
+      },
+      "name": "ChkTp",
+      "taskType": "automated",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 82.4482421875,
+        "prefHeight": 30
+      },
+      "size": {
+        "width": 82.4482421875,
+        "height": 30
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "task_ChkTp_icon",
+          "position": {
+            "x": 5,
+            "y": 5
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 20.6171875,
+            "y": 13
+          },
+          "id": "task_ChkTp_label",
+          "text": "ChkTp",
+          "position": {
+            "x": 31,
+            "y": 7
+          },
+          "size": {
+            "width": 41.4482421875,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [
+        "forkOrJoin"
+      ],
+      "type": "activityNode:fork",
+      "id": "fork_1",
+      "position": {
+        "x": 170,
+        "y": 90
+      },
+      "nodeType": "forkNode",
+      "size": {
+        "width": 10,
+        "height": 50
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edge_fork1_task_ChkTp",
+      "sourceId": "fork_1",
+      "targetId": "task_ChkTp",
+      "args": {
+        "edgeSourcePointX": 180.5,
+        "edgeSourcePointY": 115,
+        "edgeTargetPointX": 220,
+        "edgeTargetPointY": 115
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "decision"
+      ],
+      "type": "activityNode:decision",
+      "id": "decision2",
+      "position": {
+        "x": 330,
+        "y": 100
+      },
+      "nodeType": "decisionNode",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "resizeLocations": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edge_task_ChkTp_decision2",
+      "sourceId": "task_ChkTp",
+      "targetId": "decision2",
+      "args": {
+        "edgeSourcePointX": 302.4482421875,
+        "edgeSourcePointY": 115.48627182195702,
+        "edgeTargetPointX": 329.686567408344,
+        "edgeTargetPointY": 115.80756987952084
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "task",
+        "automated"
+      ],
+      "type": "task:automated",
+      "id": "task_PreHeat",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 390,
+        "y": 130
+      },
+      "name": "PreHeat",
+      "taskType": "automated",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 92.46875,
+        "prefHeight": 30
+      },
+      "size": {
+        "width": 92.46875,
+        "height": 30
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "task_PreHeat_icon",
+          "position": {
+            "x": 5,
+            "y": 5
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 25.6796875,
+            "y": 13
+          },
+          "id": "task_PreHeat_label",
+          "text": "PreHeat",
+          "position": {
+            "x": 31,
+            "y": 7
+          },
+          "size": {
+            "width": 51.46875,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [
+        "task",
+        "automated"
+      ],
+      "type": "task:automated",
+      "id": "task_KeepTp",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 390,
+        "y": 70
+      },
+      "name": "KeepTp",
+      "taskType": "automated",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 90.248046875,
+        "prefHeight": 30
+      },
+      "size": {
+        "width": 90.248046875,
+        "height": 30
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "task_KeepTp_icon",
+          "position": {
+            "x": 5,
+            "y": 5
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 24.5234375,
+            "y": 13
+          },
+          "id": "task_KeepTp_label",
+          "text": "KeepTp",
+          "position": {
+            "x": 31,
+            "y": 7
+          },
+          "size": {
+            "width": 49.248046875,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [
+        "medium"
+      ],
+      "type": "edge:weighted",
+      "routingPoints": [],
+      "id": "edege_decision_2_task_KeepTp",
+      "sourceId": "decision2",
+      "targetId": "task_KeepTp",
+      "probability": "medium",
+      "args": {
+        "edgeSourcePointX": 358.3431820143574,
+        "edgeSourcePointY": 111.70667225640446,
+        "edgeTargetPointX": 391.99949596774195,
+        "edgeTargetPointY": 100
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "medium"
+      ],
+      "type": "edge:weighted",
+      "routingPoints": [],
+      "id": "edege_decision2_task_PreHeat",
+      "sourceId": "decision2",
+      "targetId": "task_PreHeat",
+      "probability": "medium",
+      "args": {
+        "edgeSourcePointX": 358.5845250668064,
+        "edgeSourcePointY": 120.04448112969571,
+        "edgeTargetPointX": 390,
+        "edgeTargetPointY": 130.14095238095237
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "forkOrJoin"
+      ],
+      "type": "activityNode:join",
+      "id": "join_1",
+      "position": {
+        "x": 570,
+        "y": 90
+      },
+      "nodeType": "joinNode",
+      "size": {
+        "width": 10,
+        "height": 50
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [
+        "task",
+        "automated"
+      ],
+      "type": "task:automated",
+      "id": "task_Brew",
+      "layout": "hbox",
+      "args": {
+        "radiusTopLeft": 5,
+        "radiusBottomLeft": 5,
+        "radiusBottomRight": 5,
+        "radiusTopRight": 5
+      },
+      "position": {
+        "x": 640,
+        "y": 80
+      },
+      "name": "Brew",
+      "taskType": "automated",
+      "layoutOptions": {
+        "paddingRight": 10,
+        "prefWidth": 110,
+        "prefHeight": 70
+      },
+      "size": {
+        "width": 110,
+        "height": 70
+      },
+      "children": [
+        {
+          "cssClasses": [],
+          "type": "icon",
+          "id": "task_Brew_icon",
+          "position": {
+            "x": 5,
+            "y": 25
+          },
+          "size": {
+            "width": 25,
+            "height": 20
+          },
+          "children": []
+        },
+        {
+          "cssClasses": [],
+          "type": "label:heading",
+          "alignment": {
+            "x": 25.296875,
+            "y": 13
+          },
+          "id": "task_Brew_label",
+          "text": "Brewing",
+          "position": {
+            "x": 31,
+            "y": 27
+          },
+          "size": {
+            "width": 50.59375,
+            "height": 16
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "cssClasses": [
+        "merge"
+      ],
+      "type": "activityNode:merge",
+      "id": "merge_2",
+      "position": {
+        "x": 510,
+        "y": 100
+      },
+      "nodeType": "mergeNode",
+      "size": {
+        "width": 32,
+        "height": 32
+      },
+      "resizeLocations": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edge_task_KeepTp_merge_2",
+      "sourceId": "task_KeepTp",
+      "targetId": "merge_2",
+      "args": {
+        "edgeSourcePointX": 479.0962701612903,
+        "edgeSourcePointY": 100,
+        "edgeTargetPointX": 513.5964869924134,
+        "edgeTargetPointY": 111.76886083891777
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edege_task_PreHeat_merge_2",
+      "sourceId": "task_PreHeat",
+      "targetId": "merge_2",
+      "args": {
+        "edgeSourcePointX": 482.46875,
+        "edgeSourcePointY": 130.0633594429939,
+        "edgeTargetPointX": 513.4310672262025,
+        "edgeTargetPointY": 120.06056383431999
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edge_merge_2_join_1",
+      "sourceId": "merge_2",
+      "targetId": "join_1",
+      "args": {
+        "edgeSourcePointX": 542.1798959092316,
+        "edgeSourcePointY": 115.66979804266875,
+        "edgeTargetPointX": 569.5204292940203,
+        "edgeTargetPointY": 115.11182797359143
+      },
+      "children": []
+    },
+    {
+      "cssClasses": [],
+      "type": "edge",
+      "routingPoints": [],
+      "id": "edge_join_1_task_Brew",
+      "sourceId": "join_1",
+      "targetId": "task_Brew",
+      "args": {
+        "edgeSourcePointX": 580.5,
+        "edgeSourcePointY": 115,
+        "edgeTargetPointX": 640,
+        "edgeTargetPointY": 115
+      },
+      "children": []
+    }
+  ]
+}
