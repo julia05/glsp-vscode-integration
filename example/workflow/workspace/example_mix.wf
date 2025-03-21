@@ -30,11 +30,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 91.59375,
+        "prefWidth": 92.5,
         "prefHeight": 30
       },
       "size": {
-        "width": 91.59375,
+        "width": 92.5,
         "height": 30
       },
       "children": [
@@ -173,11 +173,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 92.46875,
+        "prefWidth": 93.5,
         "prefHeight": 30
       },
       "size": {
-        "width": 92.46875,
+        "width": 93.5,
         "height": 30
       },
       "children": [
@@ -199,7 +199,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 25.6796875,
+            "x": 26.5,
             "y": 13
           },
           "id": "task_PreHeat_label",
@@ -238,11 +238,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 90.248046875,
+        "prefWidth": 91.5,
         "prefHeight": 30
       },
       "size": {
-        "width": 90.248046875,
+        "width": 91.5,
         "height": 30
       },
       "children": [
@@ -264,7 +264,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 24.5234375,
+            "x": 25.5,
             "y": 13
           },
           "id": "task_KeepTp_label",
@@ -303,11 +303,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 75.32421875,
+        "prefWidth": 76.5,
         "prefHeight": 30
       },
       "size": {
-        "width": 75.32421875,
+        "width": 76.5,
         "height": 30
       },
       "children": [
@@ -329,7 +329,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 17.109375,
+            "x": 18.5,
             "y": 13
           },
           "id": "task_RflWt_label",
@@ -339,7 +339,7 @@
             "y": 7
           },
           "size": {
-            "width": 34.32421875,
+            "width": 35.5,
             "height": 16
           },
           "children": []
@@ -560,11 +560,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 123.45895385742188,
+        "prefWidth": 124.5,
         "prefHeight": 30
       },
       "size": {
-        "width": 123.45895385742188,
+        "width": 124.5,
         "height": 30
       },
       "children": [
@@ -586,7 +586,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 37.3515625,
+            "x": 38.5,
             "y": 13
           },
           "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400_classname",
@@ -596,7 +596,7 @@
             "y": 7
           },
           "size": {
-            "width": 75.703125,
+            "width": 76.5,
             "height": 16
           },
           "children": []
@@ -655,7 +655,7 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 123.45895385742188,
+        "prefWidth": 124.5,
         "prefHeight": 30
       },
       "size": {
@@ -691,7 +691,7 @@
             "y": 7
           },
           "size": {
-            "width": 82.703125,
+            "width": 83.5,
             "height": 16
           },
           "children": []

@@ -1,5 +1,5 @@
-= Documentation =
+# = Documentation =
 
-== Push ==
+## == >Push< ==
 
-The push task is performed by the user. He or she pushes the button.
+The push task is performed by the user. They push the button.
