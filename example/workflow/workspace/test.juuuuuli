@@ -706,9 +706,9 @@
       "sourceId": "fork_1",
       "targetId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
       "args": {
-        "edgeSourcePointX": 140.0249772430447,
-        "edgeSourcePointY": 127.351382200445,
-        "edgeTargetPointX": 209.79609375,
+        "edgeSourcePointX": 140,
+        "edgeSourcePointY": 127,
+        "edgeTargetPointX": 209,
         "edgeTargetPointY": 160
       },
       "children": []
@@ -721,10 +721,10 @@
       "sourceId": "c1830d23-9d62-42e3-84fa-0722e74d770c",
       "targetId": "decision2",
       "args": {
-        "edgeSourcePointX": 303.703125,
-        "edgeSourcePointY": 175.59387892881253,
-        "edgeTargetPointX": 329.652188883459,
-        "edgeTargetPointY": 175.84303354415144
+        "edgeSourcePointX": 303,
+        "edgeSourcePointY": 175,
+        "edgeTargetPointX": 329,
+        "edgeTargetPointY": 175
       },
       "children": []
     }

@@ -30,11 +30,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 91.59375,
+        "prefWidth": 91,
         "prefHeight": 30
       },
       "size": {
-        "width": 91.59375,
+        "width": 91,
         "height": 30
       },
       "children": [
@@ -56,7 +56,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 15.9609375,
+            "x": 15,
             "y": 13
           },
           "id": "task_Push_label",
@@ -66,7 +66,7 @@
             "y": 7
           },
           "size": {
-            "width": 31.921875,
+            "width": 31,
             "height": 16
           },
           "children": []
@@ -173,11 +173,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 92.46875,
+        "prefWidth": 92,
         "prefHeight": 30
       },
       "size": {
-        "width": 92.46875,
+        "width": 92,
         "height": 30
       },
       "children": [
@@ -199,7 +199,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 25.6796875,
+            "x": 25,
             "y": 13
           },
           "id": "task_PreHeat_label",
@@ -209,7 +209,7 @@
             "y": 7
           },
           "size": {
-            "width": 51.46875,
+            "width": 51,
             "height": 16
           },
           "children": []
@@ -238,11 +238,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 90.248046875,
+        "prefWidth": 90,
         "prefHeight": 30
       },
       "size": {
-        "width": 90.248046875,
+        "width": 90,
         "height": 30
       },
       "children": [
@@ -264,7 +264,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 24.5234375,
+            "x": 24,
             "y": 13
           },
           "id": "task_KeepTp_label",
@@ -274,7 +274,7 @@
             "y": 7
           },
           "size": {
-            "width": 49.248046875,
+            "width": 49,
             "height": 16
           },
           "children": []
@@ -303,11 +303,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 75.32421875,
+        "prefWidth": 75,
         "prefHeight": 30
       },
       "size": {
-        "width": 75.32421875,
+        "width": 75,
         "height": 30
       },
       "children": [
@@ -339,7 +339,7 @@
             "y": 7
           },
           "size": {
-            "width": 34.32421875,
+            "width": 34,
             "height": 16
           },
           "children": []
@@ -586,7 +586,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 37.3515625,
+            "x": 37,
             "y": 13
           },
           "id": "67ee63b4-d9fe-4739-a33c-1e1e22a27400_classname",
@@ -596,7 +596,7 @@
             "y": 7
           },
           "size": {
-            "width": 75.703125,
+            "width": 75,
             "height": 16
           },
           "children": []
@@ -655,11 +655,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 123.45895385742188,
+        "prefWidth": 123,
         "prefHeight": 30
       },
       "size": {
-        "width": 123.703125,
+        "width": 123,
         "height": 30
       },
       "children": [
@@ -681,7 +681,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 41.25,
+            "x": 41,
             "y": 13
           },
           "id": "c1830d23-9d62-42e3-84fa-0722e74d770c_classname",
@@ -691,7 +691,7 @@
             "y": 7
           },
           "size": {
-            "width": 82.703125,
+            "width": 82,
             "height": 16
           },
           "children": []

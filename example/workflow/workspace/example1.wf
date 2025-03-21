@@ -30,11 +30,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 82.4482421875,
+        "prefWidth": 82,
         "prefHeight": 30
       },
       "size": {
-        "width": 82.4482421875,
+        "width": 82,
         "height": 30
       },
       "children": [
@@ -66,7 +66,7 @@
             "y": 7
           },
           "size": {
-            "width": 41.4482421875,
+            "width": 41,
             "height": 16
           },
           "children": []
@@ -95,11 +95,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 72.921875,
+        "prefWidth": 72,
         "prefHeight": 30
       },
       "size": {
-        "width": 72.921875,
+        "width": 72,
         "height": 30
       },
       "children": [
@@ -121,7 +121,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 15.9609375,
+            "x": 15,
             "y": 13
           },
           "id": "task_Push_label",
@@ -131,7 +131,7 @@
             "y": 7
           },
           "size": {
-            "width": 31.921875,
+            "width": 31,
             "height": 16
           },
           "children": []
@@ -195,11 +195,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 83.1103515625,
+        "prefWidth": 83,
         "prefHeight": 30
       },
       "size": {
-        "width": 83.1103515625,
+        "width": 83,
         "height": 30
       },
       "children": [
@@ -231,7 +231,7 @@
             "y": 7
           },
           "size": {
-            "width": 42.1103515625,
+            "width": 42,
             "height": 16
           },
           "children": []
@@ -333,11 +333,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 92.46875,
+        "prefWidth": 92,
         "prefHeight": 30
       },
       "size": {
-        "width": 92.46875,
+        "width": 92,
         "height": 30
       },
       "children": [
@@ -359,7 +359,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 25.6796875,
+            "x": 25,
             "y": 13
           },
           "id": "task_PreHeat_label",
@@ -369,7 +369,7 @@
             "y": 7
           },
           "size": {
-            "width": 51.46875,
+            "width": 51,
             "height": 16
           },
           "children": []
@@ -398,11 +398,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 90.248046875,
+        "prefWidth": 90,
         "prefHeight": 30
       },
       "size": {
-        "width": 90.248046875,
+        "width": 90,
         "height": 30
       },
       "children": [
@@ -424,7 +424,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 24.5234375,
+            "x": 24,
             "y": 13
           },
           "id": "task_KeepTp_label",
@@ -434,7 +434,7 @@
             "y": 7
           },
           "size": {
-            "width": 49.248046875,
+            "width": 49,
             "height": 16
           },
           "children": []
@@ -463,11 +463,11 @@
       "taskType": "manual",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 75.32421875,
+        "prefWidth": 75,
         "prefHeight": 30
       },
       "size": {
-        "width": 75.32421875,
+        "width": 75,
         "height": 30
       },
       "children": [
@@ -489,7 +489,7 @@
           "cssClasses": [],
           "type": "label:heading",
           "alignment": {
-            "x": 17.109375,
+            "x": 17,
             "y": 13
           },
           "id": "task_RflWt_label",
@@ -499,7 +499,7 @@
             "y": 7
           },
           "size": {
-            "width": 34.32421875,
+            "width": 34,
             "height": 16
           },
           "children": []
@@ -528,11 +528,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 78.9931640625,
+        "prefWidth": 78,
         "prefHeight": 30
       },
       "size": {
-        "width": 78.9931640625,
+        "width": 78,
         "height": 30
       },
       "children": [
@@ -564,7 +564,7 @@
             "y": 7
           },
           "size": {
-            "width": 37.9931640625,
+            "width": 37,
             "height": 16
           },
           "children": []
@@ -658,11 +658,11 @@
       "taskType": "automated",
       "layoutOptions": {
         "paddingRight": 10,
-        "prefWidth": 73.20530319213867,
+        "prefWidth": 73,
         "prefHeight": 30
       },
       "size": {
-        "width": 73.20530319213867,
+        "width": 73,
         "height": 30
       },
       "children": [

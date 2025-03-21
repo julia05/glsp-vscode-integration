@@ -1,5 +1,5 @@
 = Documentation =
 
-== Push ==
+== _Push_ ==
 
-The push task is performed by the user. He or she pushes the button.
+The push task is performed by the user. The user pushes the button.
