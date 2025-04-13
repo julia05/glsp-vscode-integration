@@ -34,6 +34,7 @@ import * as vscode from 'vscode';
 import { DiffEditorTracker } from './diff-tracker';
 import { DiffParams, asQueryString, getQueryParams } from './query-util';
 import WorkflowEditorProvider from './workflow-editor-provider';
+import WorkflowMergeEditorProvider from './workflow-merge-editor-provider';
 
 const DEFAULT_SERVER_PORT = '0';
 const NODE_EXECUTABLE = path.join(__dirname, '..', 'dist', 'wf-glsp-server-node.js');
@@ -91,7 +92,17 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
         }
     );
 
-    context.subscriptions.push(workflowServer, glspVscodeConnector, customEditorProvider);
+    const customMergeEditorProvider = vscode.window.registerCustomEditorProvider(
+        'workflow.mergeGlspDiagram',
+        new WorkflowMergeEditorProvider(context, glspVscodeConnector),
+        {
+            webviewOptions: { retainContextWhenHidden: true },
+            supportsMultipleEditorsPerDocument: false
+        }
+    );
+
+    context.subscriptions.push(workflowServer, glspVscodeConnector);
+    context.subscriptions.push(customEditorProvider, customMergeEditorProvider);
     workflowServer.start();
 
     configureDefaultCommands({ extensionContext: context, connector: glspVscodeConnector, diagramPrefix: 'workflow' });
@@ -130,15 +141,20 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
                 console.log('byyyyeeee ');
             }
         }),
-        vscode.workspace.onDidOpenTextDocument(document => {
+        vscode.workspace.onDidOpenTextDocument(async document => {
             console.log('OpenTextDocument');
             console.log(document);
             console.log(`Document opened: ${document.uri.toString()}`);
             console.log(`Scheme: ${document.uri.scheme}`);
             console.log('--------------------------');
-            if (document.uri.scheme === 'merge-editor') {
-                console.log('goooood luuuuck ');
-                console.log('Merge editor document was opened');
+
+            // Check if this is a file we want to handle
+            if (document.fileName.endsWith('.wf')) {
+                const text = document.getText();
+
+                if (text.includes('<<<<<<< HEAD') || text.includes('=======') || text.includes('>>>>>>>')) {
+                    await vscode.commands.executeCommand('vscode.openWith', document.uri, 'workflow.mergeGlspDiagram');
+                }
             }
         }),
         vscode.tasks.onDidStartTask(taskstart => {
@@ -155,7 +171,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     );
 }
 
-const openCompareSelected = (leftFile: vscode.Uri, rightFile: vscode.Uri) => {
+const openCompareSelected = (leftFile: vscode.Uri, rightFile: vscode.Uri): void => {
     const diffId = uuid();
     const leftDiffParams: DiffParams = {
         mode: 'diff',

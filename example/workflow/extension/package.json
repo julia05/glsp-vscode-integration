@@ -105,7 +105,18 @@
           {
             "filenamePattern": "*.wf"
           }
-        ]
+        ],
+        "priority": "default"
+      },
+      {
+        "viewType": "workflow.mergeGlspDiagram",
+        "displayName": "Workflow Merge Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.wf"
+          }
+        ],
+        "priority": "option"
       }
     ],
     "keybindings": [
@@ -239,6 +250,9 @@
     "webpack-merge": "^5.9.0",
     "workflow-glsp-webview": "2.3.0"
   },
+  "extensionDependencies": [
+    "vscode.git"
+  ],
   "engines": {
     "vscode": "^1.54.0"
   }

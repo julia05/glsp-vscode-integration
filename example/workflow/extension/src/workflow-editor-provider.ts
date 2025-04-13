@@ -89,6 +89,13 @@ export default class WorkflowEditorProvider extends GlspEditorProvider {
         openContext: vscode.CustomDocumentOpenContext,
         token: vscode.CancellationToken
     ): Promise<vscode.CustomDocument> {
+        const textDocument = await vscode.workspace.openTextDocument(uri);
+        const text = textDocument.getText();
+        if (text.includes('<<<<<<< HEAD') || text.includes('=======') || text.includes('>>>>>>>')) {
+            // Let VS Code handle the file with the default editor
+            throw new Error('------------------ File is in merge conflict state');
+        }
+
         const diffEditorTracker = DiffEditorTracker.get();
         if (diffEditorTracker.isDiffEditorActive) {
             const diff = diffEditorTracker.addDiffUri(uri);
