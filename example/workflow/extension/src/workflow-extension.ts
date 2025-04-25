@@ -128,22 +128,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
             openCompareSelected(leftFile, rightFile);
         }),
         vscode.commands.registerCommand('workflow.openMergeVisualizer', (...args) => {
-            console.log('haaalllooo ', args);
+            console.log('command open merge visualizer triggered', args);
             console.log('--------------------------');
         }),
-        vscode.window.onDidChangeActiveTextEditor(editor => {
-            if (editor) {
-                console.log(`Active editor changed: ${editor.document.uri.toString()}`);
-                console.log(`Scheme: ${editor.document.uri.scheme}`);
-                console.log('--------------------------');
-            }
-            if (editor && editor.document.uri.scheme === 'merge-editor') {
-                console.log('byyyyeeee ');
-            }
-        }),
         vscode.workspace.onDidOpenTextDocument(async document => {
-            console.log('OpenTextDocument');
-            console.log(document);
+            console.log('OpenTextDocument ', document);
             console.log(`Document opened: ${document.uri.toString()}`);
             console.log(`Scheme: ${document.uri.scheme}`);
             console.log('--------------------------');
@@ -153,19 +142,50 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
                 const text = document.getText();
 
                 if (text.includes('<<<<<<< HEAD') || text.includes('=======') || text.includes('>>>>>>>')) {
+                    // first variant only with one custom editor all 3 files
                     await vscode.commands.executeCommand('vscode.openWith', document.uri, 'workflow.mergeGlspDiagram');
+
+                    // second variant webview with 3 iframes
+                    /*
+                    const panel = vscode.window.createWebviewPanel(
+                        'mergeJuuIframe', // Identifies the type of the webview. Used internally
+                        'Merge Conflict Files', // Title of the panel displayed to the user
+                        vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+                        {
+                            // Webview options
+                            enableScripts: true,
+                            retainContextWhenHidden: true,
+                            localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'workspace')]
+                        }
+                    );
+
+                    console.log(context.extensionUri);
+                    console.log(panel);
+
+                    panel.webview.html = getWebviewContentIframes(context, glspVscodeConnector, panel, document.uri);
+                    */
+
+                    // third option webview with 3 files loaded
+                    /*
+                    const panel = vscode.window.createWebviewPanel(
+                        'mergeJuu', // Identifies the type of the webview. Used internally
+                        'Merge Conflict Files', // Title of the panel displayed to the user
+                        vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+                        {
+                            // Webview options
+                            enableScripts: true,
+                            retainContextWhenHidden: true,
+                            localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'workspace')]
+                        }
+                    );
+
+                    console.log(context.extensionUri);
+                    console.log(panel);
+
+                    panel.webview.html = await getWebviewContent(context, glspVscodeConnector, panel, document.uri);
+                    */
                 }
             }
-        }),
-        vscode.tasks.onDidStartTask(taskstart => {
-            console.log('taskstart ');
-            console.log(taskstart.execution);
-            console.log('--------------------------');
-        }),
-        vscode.window.tabGroups.onDidChangeTabs(e => {
-            console.log('tabGroups - ChangeTab ');
-            console.log(e);
-            console.log('--------------------------');
         }),
         DiffEditorTracker.get()
     );

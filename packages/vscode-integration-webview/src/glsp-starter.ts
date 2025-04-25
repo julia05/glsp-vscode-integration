@@ -46,7 +46,11 @@ export abstract class GLSPStarter {
     }
 
     protected acceptDiagramIdentifier(identifier: GLSPDiagramIdentifier): void {
+        // eslint-disable-next-line no-debugger
+        debugger;
         if (this.container) {
+            // eslint-disable-next-line no-debugger
+            debugger;
             const oldIdentifier = this.container.get<GLSPDiagramIdentifier>(GLSPDiagramIdentifier);
             oldIdentifier.diagramType = identifier.diagramType;
             oldIdentifier.uri = identifier.uri;

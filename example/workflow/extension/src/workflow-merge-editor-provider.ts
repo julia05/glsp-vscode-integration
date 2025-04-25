@@ -20,12 +20,9 @@ import {
     serializeUri,
     WebviewEndpoint
 } from '@eclipse-glsp/vscode-integration';
-import * as cp from 'child_process';
 import * as vscode from 'vscode';
-import { GitExtension } from './types/git';
-import util = require('util');
+import { getGitFiles } from './git-util';
 import path = require('path');
-const exec = util.promisify(cp.exec);
 
 export interface WorkflowMergeDocument extends vscode.CustomDocument {
     readonly side: 'base' | 'local' | 'remote';
@@ -37,11 +34,12 @@ export namespace WorkflowMergeDocument {
     }
 }
 
-export interface WorkflowDiagramIdentifier extends GLSPDiagramIdentifier {
-    diff?: {
+export interface WorkflowMergeDiagramIdentifier extends GLSPDiagramIdentifier {
+    merge?: {
         id: string;
-        side: 'left' | 'right';
-        content: string;
+        side: 'base' | 'local' | 'remote';
+        // TODO: das mit dem content wäre eine andere Variante, um nicht die hardcoded remote und base files zu haben
+        // content: string;
     };
 }
 
@@ -57,20 +55,19 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
 
     setUpWebview(
         _document: vscode.CustomDocument,
-        webviewPanel: vscode.WebviewPanel,
+        _webviewPanel: vscode.WebviewPanel,
         _token: vscode.CancellationToken,
-        clientId: string
+        _clientId: string
     ): void {
-        console.log('WEEEBVIEW?');
+        console.log('webview from super class, not used because other input parameters needed');
     }
 
     override async openCustomDocument(
         uri: vscode.Uri,
-        openContext: vscode.CustomDocumentOpenContext,
-        token: vscode.CancellationToken
+        _openContext: vscode.CustomDocumentOpenContext,
+        _token: vscode.CancellationToken
     ): Promise<vscode.CustomDocument> {
-        console.log('--------------- OOOOOPPPEEEEEEN');
-        console.log('MEEEEERGEEEE ---------------');
+        console.log('--------------- OPEN IN MERGE EDITOR ---------------');
 
         return { uri, dispose: () => undefined };
     }
@@ -80,103 +77,63 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
         webviewPanel: vscode.WebviewPanel,
         token: vscode.CancellationToken
     ): Promise<void> {
-        console.log('--------------- REESSSOOOOOLVEE');
-        console.log('MEEEEERGEEEE ---------------');
+        console.log('--------------- RESOLVE IN MERGE EDITOR ---------------');
 
-        console.log(document);
-        console.log(document.uri);
+        const gitFiles = await getGitFiles(document.uri);
+        const fileName = document.uri.toString().split('/').reverse()[0];
 
-        const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git');
-
-        if (gitExtension === undefined) {
-            throw new Error('Git extension not found');
-        }
-
-        const api = gitExtension.exports.getAPI(1);
-
-        const repo = api.repositories[0];
-
-        console.log('REPO: ', repo);
-
-        // this is only called, and after this command the repo.state is loaded
-        await repo.status();
-
-        const repoStateAfterStatusLoad = repo.state;
-
-        const head = repo.state.HEAD;
-
-        const refs = await repo.getRefs({});
-
-        console.log('REPO STATE: ', repoStateAfterStatusLoad);
-
-        const changes = repo.state.mergeChanges;
-
-        console.log('HEAD: ', head);
-        console.log('REFS: ', refs);
-        console.log('CHANGEEES: ', changes);
-
-        // git log --merge gets the conflict commits
-        console.log(await repo.log({ path: document.uri.path }));
-
-        const relativePath = document.uri.path.replace(repo.rootUri.path, '');
-        console.log(relativePath);
-
-        const repoRoot = repo.rootUri.path;
-        const getBase = `git -C ${repoRoot} show :1:.${relativePath}`;
-        const getLocal = `git -C ${repoRoot} show :2:.${relativePath}`;
-        const getRemote = `git -C ${repoRoot} show :3:.${relativePath}`;
-
-        const base = await this.runCommand(getBase);
-        const local = await this.runCommand(getLocal);
-        const remote = await this.runCommand(getRemote);
-
-        if (base === undefined || local === undefined || remote === undefined) {
-            throw new Error('Could not found Base or Remote');
-        } else if (local.stdout.includes('<<<<<<< HEAD') || local.stdout.includes('=======') || local.stdout.includes('>>>>>>>')) {
-            throw new Error('-- File is in merge conflict state');
-        }
-
-        const fileName = relativePath.split('/').reverse()[0];
-
-        const baseUri = await this.saveContentAndCreateUri(base.stdout, 'base-' + fileName);
+        const baseUri = await this.saveContentAndCreateUri(gitFiles.base, 'base-' + fileName);
         const baseDoc = <WorkflowMergeDocument>{ uri: baseUri, dispose: () => undefined, side: 'base' };
-        const baseDiagramIdentifier: GLSPDiagramIdentifier = {
+        const baseDiagramIdentifier: WorkflowMergeDiagramIdentifier = {
             diagramType: this.diagramType,
             uri: serializeUri(baseUri),
             clientId: `${this.diagramType}_${this.viewCount++}`
         };
 
-        const localUri = await this.saveContentAndCreateUri(local.stdout, 'local-' + fileName);
+        const localUri = await this.saveContentAndCreateUri(gitFiles.local, 'local-' + fileName);
         const localDoc = <WorkflowMergeDocument>{ uri: localUri, dispose: () => undefined, side: 'local' };
-        const localeDiagramIdentifier: GLSPDiagramIdentifier = {
+        const localeDiagramIdentifier: WorkflowMergeDiagramIdentifier = {
             diagramType: this.diagramType,
             uri: serializeUri(localUri),
             clientId: `${this.diagramType}_${this.viewCount++}`
         };
 
-        const remoteUri = await this.saveContentAndCreateUri(remote.stdout, 'remote-' + fileName);
+        const remoteUri = await this.saveContentAndCreateUri(gitFiles.remote, 'remote-' + fileName);
         const remoteDoc = <WorkflowMergeDocument>{ uri: remoteUri, dispose: () => undefined, side: 'remote' };
-        const remoteDiagramIdentifier: GLSPDiagramIdentifier = {
+        const remoteDiagramIdentifier: WorkflowMergeDiagramIdentifier = {
             diagramType: this.diagramType,
             uri: serializeUri(remoteUri),
             clientId: `${this.diagramType}_${this.viewCount++}`
         };
 
-        console.log('initializing done', baseDiagramIdentifier.clientId, localeDiagramIdentifier.clientId);
+        // create 3 endpoints for same webviewPanel
+        const baseEndpoint = new WebviewEndpoint({
+            diagramIdentifier: baseDiagramIdentifier,
+            messenger: this.glspVscodeConnector.messenger,
+            webviewPanel
+        });
 
-        const endpoint = new WebviewEndpoint({
+        const localEndpoint = new WebviewEndpoint({
             diagramIdentifier: localeDiagramIdentifier,
             messenger: this.glspVscodeConnector.messenger,
             webviewPanel
         });
 
-        console.log('webview endpoint created');
+        const remoteEndpoint = new WebviewEndpoint({
+            diagramIdentifier: remoteDiagramIdentifier,
+            messenger: this.glspVscodeConnector.messenger,
+            webviewPanel
+        });
+
+        console.log(this.glspVscodeConnector.messenger);
+
+        console.log('webview endpoints created');
 
         this.glspVscodeConnector.registerClient({
             clientId: baseDiagramIdentifier.clientId,
             diagramType: baseDiagramIdentifier.diagramType,
             document: baseDoc,
-            webviewEndpoint: endpoint
+            webviewEndpoint: baseEndpoint
         });
 
         console.log('glsp register client for base done');
@@ -185,7 +142,7 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
             clientId: localeDiagramIdentifier.clientId,
             diagramType: localeDiagramIdentifier.diagramType,
             document: localDoc,
-            webviewEndpoint: endpoint
+            webviewEndpoint: localEndpoint
         });
 
         console.log('glsp register client for locale done');
@@ -194,15 +151,11 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
             clientId: remoteDiagramIdentifier.clientId,
             diagramType: remoteDiagramIdentifier.diagramType,
             document: remoteDoc,
-            webviewEndpoint: endpoint
+            webviewEndpoint: remoteEndpoint
         });
 
-        this.setUpWebview3Panels(
+        this.setUpMergeWebviewPanels(
             localDoc,
-            baseUri,
-            base.stdout,
-            remoteUri,
-            remote.stdout,
             webviewPanel,
             token,
             baseDiagramIdentifier.clientId,
@@ -211,21 +164,11 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
         );
     }
 
-    async runCommand(command: string): Promise<{ stdout: string; stderr: string } | undefined> {
-        try {
-            return exec(command);
-        } catch (e) {
-            console.error(e);
-        }
-
-        return undefined;
-    }
-
     async saveContentAndCreateUri(content: string, fileName: string): Promise<vscode.Uri> {
         const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
 
         if (workspaceFolder === undefined) {
-            throw new Error('can not go further');
+            throw new Error('folder not found, can not go further');
         }
 
         const folderPath = path.join(workspaceFolder.uri.fsPath, 'temp-merge-files');
@@ -239,12 +182,8 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
         return fileUri;
     }
 
-    setUpWebview3Panels(
-        local: vscode.CustomDocument,
-        baseUri: vscode.Uri,
-        base: string,
-        remoteUri: vscode.Uri,
-        remote: string,
+    setUpMergeWebviewPanels(
+        _localDoc: vscode.CustomDocument,
         webviewPanel: vscode.WebviewPanel,
         _token: vscode.CancellationToken,
         clientIdBase: string,
@@ -257,17 +196,11 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
         const extensionUri = this.extensionContext.extensionUri;
         const webviewScriptSourceUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'dist', 'webview.js'));
 
-        const webviewScriptSourceUri2 = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, '_locale_', 'dist', 'webview.js'));
-
-        const webviewScriptSourceUri3 = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, '_remote_', 'dist', 'webview.js'));
-
-        webviewPanel.webview.options = {
+        webview.options = {
             enableScripts: true
         };
 
-        console.log('after some initializing');
-
-        webviewPanel.webview.html = `
+        webview.html = `
             <!DOCTYPE html>
             <html lang="en">
                 <head>
@@ -277,20 +210,26 @@ export default class WorkflowMergeEditorProvider extends GlspEditorProvider {
                     default-src http://*.fontawesome.com  ${webview.cspSource} 'unsafe-inline' 'unsafe-eval';
                     ">
                     <style>
-                        .merge-container { display: flex; height: 100vh; }
+                        body { display: flex; height: 100vh; }
                         .panel { flex: 1; overflow: auto; border: 1px solid #ccc; }
                     </style>
                 </head>
                 <body>
-                    <div class="merge-container">
-                        <div id="${clientIdLocale}_container" class="panel"></div>
-                        <div id="${clientIdBase}_container" class="panel""></div>
-                        <div id="${clientIdRemote}_container" class="panel"></div>
-                    </div>
-                    <script src="${webviewScriptSourceUri}"></script> // JavaScript to handle UI logic
-                    <script src="${webviewScriptSourceUri2}"></script>
-                    <script src="${webviewScriptSourceUri3}"></script>
+                    <div id="${clientIdLocale}_container" class="panel"></div>
+                    <div id="${clientIdBase}_container" class="panel"></div>
+                    <div id="${clientIdRemote}_container" class="panel"></div>
+
+                    <script src="${webviewScriptSourceUri}"></script>
                 </body>
             </html>`;
+
+        // failed attempt with iframe
+        /*
+        <iframe
+            id="editor1"
+            srcdoc="${getFileWebview(webviewPanel, this.glspVscodeConnector, webviewScriptSourceUri, baseUri)}"
+        >
+        </iframe>
+        */
     }
 }

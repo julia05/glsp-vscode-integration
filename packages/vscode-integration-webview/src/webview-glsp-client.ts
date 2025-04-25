@@ -111,6 +111,8 @@ export class WebviewGlspClient implements GLSPClient, Disposable {
     }
 
     initializeClientSession(params: InitializeClientSessionParameters): Promise<void> {
+        // eslint-disable-next-line no-debugger
+        debugger; // es wird nur einmal die Methode aufgerufen
         return this.messenger.sendRequest(InitializeClientSessionRequest, HOST_EXTENSION, params);
     }
 

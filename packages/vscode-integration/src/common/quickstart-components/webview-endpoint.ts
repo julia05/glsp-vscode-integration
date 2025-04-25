@@ -102,7 +102,8 @@ export class WebviewEndpoint implements Disposable {
     }
 
     protected async sendDiagramIdentifier(): Promise<void> {
-        await this.ready;
+        // da ist es noch nicht fishy, das wird 3 mal mit den 3 unterschiedlichen diagramIdentifier aufgerufen
+        await this.ready; // aber das if wird dann nur einmal aufgerufen, whs weil await ready??
         if (this.diagramIdentifier) {
             this.messenger.sendNotification(InitializeNotification, this.messageParticipant, this.diagramIdentifier);
         }
@@ -145,9 +146,14 @@ export class WebviewEndpoint implements Disposable {
             this.messenger.onRequest(
                 InitializeClientSessionRequest,
                 params => {
+                    // DIE params sind immer gleich
+                    // eslint-disable-next-line no-debugger
+                    // debugger;
                     if (!this._clientActions) {
                         this._clientActions = params.clientActionKinds;
-                    }
+                    } // es wird 3 Mal mit gleichen Params das initilaize Client session ausgeführt
+                    // eslint-disable-next-line no-debugger
+                    // debugger;
                     glspClient.initializeClientSession(params);
                 },
                 {

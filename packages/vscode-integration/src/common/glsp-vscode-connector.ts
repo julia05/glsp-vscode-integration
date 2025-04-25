@@ -268,6 +268,8 @@ export class GlspVscodeConnector<D extends vscode.CustomDocument = vscode.Custom
      */
     dispatchAction(action: Action, clientId?: string): void {
         const client = clientId ? this.clientMap.get(clientId) : this.getActiveClient();
+        // eslint-disable-next-line no-debugger
+        debugger;
         if (!client) {
             console.warn('Could not dispatch action: No client found for clientId or no active client found.', action);
             return;
